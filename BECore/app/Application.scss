@@ -1,0 +1,10 @@
+/*
+ *  This file can be used to set variables and supply global styling.  View specific 
+ *  styling should be located the view's corresponding scss file.
+ */
+$enable-font-awesome: dynamic(true);
+/*hover:#0088c2,active:#00577b:normal:#026b97*/
+$primary-normal:#026b97;
+$primary-hover:#0088c2;
+$primary-active:#00577b;
+

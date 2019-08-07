@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+    <link href="../resources/css/Login.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-1.8.0.min.js"></script>
+    <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/scripts/Login.js"></script>
+    <title>Hồ sơ y tế điện tử</title>
+</head>
+<body>
+    <div class="title">Hệ thống đặt lịch, ghi nhận kết quả khám chữa bệnh</div>
+    <div class="login">
+        <div class="login-triangle"></div>
+        <h2 class="login-header">HTTTYT.VN</h2>
+        <div class="login-container">
+            <div id="lblError"></div>
+            @using (Ajax.BeginForm("Login", "Account", new AjaxOptions
+            {
+                HttpMethod = "POST",
+                LoadingElementId = "maskLogin",
+                OnSuccess = "myLogin.loginSuccess",
+                OnFailure = "myLogin.loginFailure"
+            }, new { @class = "form-control" }))
+            {
+
+                <p><input type="text" name="UserName" placeholder="Nhập tên đăng nhập"></p>
+                <p><input type="password" name="Password" placeholder="Nhập mật khẩu"></p>
+                <div id="maskLogin" style="display:none">
+                    <img src="~/resources/images/loader.gif" />
+                </div>
+
+                <p><input type="submit" value="Đăng nhập"></p>
+                <p class="link-forgot-password"><a href="/Home/ResetPassword">Quên mật khẩu?</a></p>
+            }
+        </div>
+        <div class="contact">
+            <p>Hộp thư liên hệ: htttytet3@gmail.com</p>
+            <p>Điện thoại: 0963672222</p>
+        </div>
+    </div>
+</body>
+</html>
